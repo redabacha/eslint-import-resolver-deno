@@ -1,0 +1,32 @@
+{
+  "name": "@redabacha/eslint-import-resolver-deno",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "deno",
+    "eslint",
+    "plugin",
+    "import",
+    "resolver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redabacha/eslint-import-resolver-deno.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist/ && tsc",
+    "prepublishOnly": "npm run build",
+    "test": "node ./tests/runner.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  }
+}
