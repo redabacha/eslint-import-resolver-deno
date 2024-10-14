@@ -68,7 +68,7 @@ function resolveDeno(
   let output: string | null = null;
   try {
     output = execSync(
-      `${DENO_BINARY} info --no-lock --node-modules-dir=${resolver} --json ${id}`,
+      `${DENO_BINARY} info --no-lock --node-modules-dir=${resolver} --json '${id}'`,
       { cwd },
     ).toString("utf8");
     // deno-lint-ignore no-empty

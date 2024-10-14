@@ -30,4 +30,9 @@ describe("eslint-import-resolver-deno", () => {
     execAsync(`${eslintBinPath} subdir/test-success.ts`, {
       cwd: fixturePath,
     }));
+
+  it("works with importmaps", () =>
+    execAsync(`${eslintBinPath} importmap/subdir/test-success.ts`, {
+      cwd: fixturePath,
+    }));
 });
