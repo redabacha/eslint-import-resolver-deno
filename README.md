@@ -1,6 +1,6 @@
 # eslint-import-resolver-deno
 
-This enables Deno import resolution for `eslint-plugin-import`.
+This enables Deno import resolution for `eslint-plugin-import`. This has been tested against Deno v2.0.0.
 
 ## Usage
 

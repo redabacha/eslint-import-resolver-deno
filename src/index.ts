@@ -46,6 +46,7 @@ function isResolveError(
 let checkedDenoInstall = false;
 const DENO_BINARY = process.platform === "win32" ? "deno.exe" : "deno";
 
+// Adapted from https://github.com/denoland/deno-vite-plugin/blob/895724634320eb5946c8c606f2e6f342976b4c0c/src/resolver.ts#L61
 function resolveDeno(id: string, cwd: string, resolver = "none") {
   if (!checkedDenoInstall) {
     try {
