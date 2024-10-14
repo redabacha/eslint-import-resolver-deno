@@ -1,3 +1,4 @@
+import assert from "node:assert";
 import { exec } from "node:child_process";
 import path from "node:path";
 import { before, describe, it } from "node:test";
@@ -35,4 +36,20 @@ describe("eslint-import-resolver-deno", () => {
     execAsync(`${eslintBinPath} importmap/subdir/test-success.ts`, {
       cwd: fixturePath,
     }));
+
+  it("errors on missing file", async () => {
+    await assert.rejects(
+      () =>
+        execAsync(`${eslintBinPath} importmap/subdir/test-failure.ts`, {
+          cwd: fixturePath,
+        }),
+      (err) => {
+        assert.match(
+          err.stdout,
+          /error  Unable to resolve path to module '~\/non-existent-style\.css'  import\/no-unresolved/,
+        );
+        return true;
+      },
+    );
+  });
 });

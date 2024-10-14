@@ -46,11 +46,7 @@ function isResolveError(
 let checkedDenoInstall = false;
 const DENO_BINARY = process.platform === "win32" ? "deno.exe" : "deno";
 
-function resolveDeno(
-  id: string,
-  cwd: string,
-  resolver = "none",
-): ResolvedInfo | NpmResolvedInfo | null {
+function resolveDeno(id: string, cwd: string, resolver = "none") {
   if (!checkedDenoInstall) {
     try {
       execSync(`${DENO_BINARY} --version`, { cwd });
@@ -97,8 +93,12 @@ function resolveDeno(
     return null;
   }
 
-  // Specifier not found by deno
   if (isResolveError(mod)) {
+    // We do not care, the file exists
+    if (mod.error.includes("The module's source code could not be parsed")) {
+      return mod;
+    }
+
     return null;
   }
 
