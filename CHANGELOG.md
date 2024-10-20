@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.0.1...v1.1.0) (2024-10-20)
+
+
+### Features
+
+* add debug logging and resolve local files with node resolution first ([38cdf56](https://github.com/redabacha/eslint-import-resolver-deno/commit/38cdf561cc8621ac3f831a263606856d440c478d))
+
 ## [1.0.1](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.0.0...v1.0.1) (2024-10-14)
 
 
