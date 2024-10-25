@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.3...v1.1.4) (2024-10-25)
+
+
+### Bug Fixes
+
+* check error message text too ([4c06e5d](https://github.com/redabacha/eslint-import-resolver-deno/commit/4c06e5deb659924a8091f626dff12a2859b1fd88))
+
 ## [1.1.3](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.2...v1.1.3) (2024-10-25)
 
 
