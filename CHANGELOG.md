@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.2...v1.1.3) (2024-10-25)
+
+
+### Bug Fixes
+
+* avoid returning node builtins as paths ([4d4e56f](https://github.com/redabacha/eslint-import-resolver-deno/commit/4d4e56f54deef72e65b14d1b03238bdafa20f9e8))
+
 ## [1.1.2](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.1...v1.1.2) (2024-10-25)
 
 
