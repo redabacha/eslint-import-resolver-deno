@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.1...v1.1.2) (2024-10-25)
+
+
+### Bug Fixes
+
+* handle ERR_INVALID_PACKAGE_TARGET error too ([289a5a4](https://github.com/redabacha/eslint-import-resolver-deno/commit/289a5a4dc0bab5b24f71cd671acf28bbdc8cf7fd))
+
 ## [1.1.1](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.0...v1.1.1) (2024-10-25)
 
 
