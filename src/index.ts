@@ -128,18 +128,21 @@ export const interfaceVersion = 2;
 export function resolve(moduleName: string, importer: string) {
   const cwd = path.dirname(importer);
 
-  if (moduleName.startsWith(".") && !moduleName.startsWith("/")) {
-    try {
-      const resolved = require.resolve(moduleName, { paths: [cwd] });
-      log('found "%s" in "%s" using node resolution', moduleName, cwd);
-      return { found: true, path: resolved };
-    } catch {}
-  } else if (!moduleName.startsWith(".") && !moduleName.startsWith("/")) {
-    try {
-      moduleName = require.resolve(moduleName, { paths: [cwd] });
-    } catch {
-      // Ignore: not resolvable
+  // Attempt node resolution first
+  try {
+    const resolved = require.resolve(moduleName, { paths: [cwd] });
+    log('found "%s" in "%s" using node resolution', moduleName, cwd);
+    return { found: true, path: resolved };
+  } catch (e) {
+    // Handle esm only npm packages
+    if (e.code === "ERR_PACKAGE_PATH_NOT_EXPORTED") {
+      return { found: true, path: null };
     }
+    log(
+      'node resolution failed for "%s" in "%s", trying deno resolution next...',
+      moduleName,
+      cwd,
+    );
   }
 
   const resolved = resolveDeno(moduleName, cwd);

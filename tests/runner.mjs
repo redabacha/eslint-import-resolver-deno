@@ -16,6 +16,9 @@ describe("eslint-import-resolver-deno", () => {
       execAsync("deno install", {
         cwd: fixturePath,
       }),
+      execAsync("deno install", {
+        cwd: path.resolve(fixturePath, "./esm-only-package"),
+      }),
       execAsync("npm run build", {
         cwd: rootPath,
       }),
@@ -34,6 +37,11 @@ describe("eslint-import-resolver-deno", () => {
 
   it("works with importmaps", () =>
     execAsync(`${eslintBinPath} importmap/subdir/test-success.ts`, {
+      cwd: fixturePath,
+    }));
+
+  it("works with esm only package", () =>
+    execAsync(`${eslintBinPath} esm-only-package/test-success.ts`, {
       cwd: fixturePath,
     }));
 

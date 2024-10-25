@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@deno/vite-plugin": "^1.0.0"
+  }
+}
