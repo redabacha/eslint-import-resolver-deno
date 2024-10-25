@@ -132,7 +132,7 @@ export function resolve(moduleName: string, importer: string) {
   try {
     const resolved = require.resolve(moduleName, { paths: [cwd] });
     log('found "%s" in "%s" using node resolution', moduleName, cwd);
-    return { found: true, path: resolved };
+    return { found: true, path: path.isAbsolute(resolved) ? resolved : null };
   } catch (e) {
     // Handle esm only npm packages
     if (
@@ -142,7 +142,7 @@ export function resolve(moduleName: string, importer: string) {
       return { found: true, path: null };
     }
     log(
-      'node resolution failed for "%s" in "%s" due to %O, trying deno resolution next...',
+      'node resolution failed for "%s" in "%s" due to "%O", trying deno resolution next...',
       moduleName,
       cwd,
       e,
