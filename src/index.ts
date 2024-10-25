@@ -135,13 +135,17 @@ export function resolve(moduleName: string, importer: string) {
     return { found: true, path: resolved };
   } catch (e) {
     // Handle esm only npm packages
-    if (e.code === "ERR_PACKAGE_PATH_NOT_EXPORTED") {
+    if (
+      e.code === "ERR_INVALID_PACKAGE_TARGET" ||
+      e.code === "ERR_PACKAGE_PATH_NOT_EXPORTED"
+    ) {
       return { found: true, path: null };
     }
     log(
-      'node resolution failed for "%s" in "%s", trying deno resolution next...',
+      'node resolution failed for "%s" in "%s" due to %O, trying deno resolution next...',
       moduleName,
       cwd,
+      e,
     );
   }
 
