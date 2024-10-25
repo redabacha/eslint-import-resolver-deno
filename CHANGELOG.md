@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.1.0...v1.1.1) (2024-10-25)
+
+
+### Bug Fixes
+
+* handle esm only packages ([3c38608](https://github.com/redabacha/eslint-import-resolver-deno/commit/3c38608024086fae01efd97d161bf286c78ae76d))
+
 # [1.1.0](https://github.com/redabacha/eslint-import-resolver-deno/compare/v1.0.1...v1.1.0) (2024-10-20)
 
 
