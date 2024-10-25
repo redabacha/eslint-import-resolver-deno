@@ -137,7 +137,9 @@ export function resolve(moduleName: string, importer: string) {
     // Handle esm only npm packages
     if (
       e.code === "ERR_INVALID_PACKAGE_TARGET" ||
-      e.code === "ERR_PACKAGE_PATH_NOT_EXPORTED"
+      e.code === "ERR_PACKAGE_PATH_NOT_EXPORTED" ||
+      e.message.startsWith("[ERR_INVALID_PACKAGE_TARGET]") ||
+      e.message.startsWith("[ERR_PACKAGE_PATH_NOT_EXPORTED]")
     ) {
       return { found: true, path: null };
     }
